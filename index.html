@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="A gentle reflection for young adults whose plans have changed." />
+  <link rel="icon" href="data:," />
+  <title>Different Timeline, Still Progress</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f8f5ef;
+      --paper-deep: #efe9de;
+      --surface: #fffdf8;
+      --ink: #19322f;
+      --muted: #4f625e;
+      --line: #cfd9d4;
+      --teal: #176b63;
+      --teal-soft: #dcebe6;
+      --orange: #d56c3d;
+      --orange-soft: #f4dfd1;
+      --yellow: #f1d38a;
+      --hero-start: #f5e1d4;
+      --hero-mid: #eef1df;
+      --hero-end: #d9ebe4;
+      --nav-bg: rgba(255, 253, 248, .86);
+      --shadow: 0 18px 44px rgba(37, 58, 52, .09);
+      --radius-lg: 30px;
+      --radius-md: 18px;
+      --max: 1120px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #101917;
+        --paper-deep: #16221f;
+        --surface: #1a2825;
+        --ink: #edf5f1;
+        --muted: #bdcbc6;
+        --line: #3b4d48;
+        --teal: #79c7ba;
+        --teal-soft: #203b36;
+        --orange: #f1a078;
+        --orange-soft: #462d25;
+        --yellow: #b89645;
+        --hero-start: #3a2822;
+        --hero-mid: #27352c;
+        --hero-end: #1b3a35;
+        --nav-bg: rgba(26, 40, 37, .88);
+        --shadow: 0 22px 46px rgba(0, 0, 0, .24);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 50;
+      padding: 10px 16px;
+      background: var(--ink);
+      color: var(--paper);
+      transform: translateY(-150%);
+      transition: transform .2s ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .scroll-progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 60;
+      width: 0;
+      height: 3px;
+      background: var(--orange);
+      box-shadow: 0 0 10px color-mix(in srgb, var(--orange) 55%, transparent);
+    }
+    .nav-wrap {
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      width: fit-content;
+      max-width: calc(100% - 24px);
+      margin: 12px auto -72px;
+      padding: 6px;
+      background: var(--nav-bg);
+      border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(37, 58, 52, .12);
+      backdrop-filter: blur(16px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+    }
+    .nav-mark { display: none; }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    nav a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s ease, background .2s ease;
+    }
+    nav a:hover,
+    nav a.active { color: var(--surface); background: var(--teal); }
+
+    main { display: block; }
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 720px;
+      margin: 0;
+      padding: clamp(120px, 14vw, 172px) max(24px, calc((100vw - var(--max)) / 2)) 130px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(230px, .7fr);
+      align-items: center;
+      gap: clamp(34px, 7vw, 80px);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 84% 20%, color-mix(in srgb, var(--yellow) 46%, transparent) 0 8%, transparent 28%),
+        linear-gradient(128deg, var(--hero-start), var(--hero-mid) 51%, var(--hero-end));
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -92px;
+      top: 72px;
+      border: 1px solid color-mix(in srgb, var(--teal) 36%, transparent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 48px color-mix(in srgb, var(--teal-soft) 45%, transparent), 0 0 0 96px color-mix(in srgb, var(--surface) 18%, transparent);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -3%;
+      right: -3%;
+      bottom: -1px;
+      height: 82px;
+      background: var(--paper);
+      clip-path: ellipse(58% 42% at 50% 100%);
+    }
+    .hero-copy { position: relative; z-index: 2; }
+    h1, h2, h3 { text-wrap: balance; }
+    h1 {
+      max-width: 820px;
+      margin: 0 0 28px;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: clamp(4rem, 9vw, 7.8rem);
+      line-height: .88;
+      font-weight: 650;
+      letter-spacing: -.052em;
+    }
+    .hero p {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+      line-height: 1.45;
+    }
+
+    .path-visual {
+      position: relative;
+      min-height: 390px;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      z-index: 2;
+      aria-hidden: true;
+    }
+    .path-line {
+      width: 4px;
+      border-radius: 999px;
+      background: repeating-linear-gradient(to bottom, var(--line) 0 12px, transparent 12px 22px);
+    }
+    .path-node {
+      position: absolute;
+      left: 50%;
+      width: 26px;
+      height: 26px;
+      transform: translateX(-50%);
+      border: 5px solid var(--surface);
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 2px var(--teal);
+    }
+    .path-node:nth-of-type(2) { top: 4%; }
+    .path-node:nth-of-type(3) { top: 42%; background: var(--orange); box-shadow: 0 0 0 2px var(--orange), 0 0 0 8px var(--orange-soft); }
+    .path-node:nth-of-type(4) { bottom: 5%; }
+    .path-label {
+      position: absolute;
+      top: 38%;
+      left: calc(50% + 34px);
+      width: 145px;
+      padding: 9px 12px;
+      background: var(--orange-soft);
+      color: var(--ink);
+      border-radius: 10px 10px 10px 3px;
+      font-size: .84rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .content {
+      width: min(calc(100% - 36px), 940px);
+      margin: 0 auto;
+      padding: 90px 0 110px;
+    }
+    .section {
+      position: relative;
+      padding: 72px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .section:last-child { border-bottom: 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+    .section-number {
+      padding-top: 8px;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: .08em;
+    }
+    h2 {
+      margin: 0;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 4.25rem);
+      line-height: 1.04;
+      letter-spacing: -.025em;
+      font-weight: 650;
+    }
+    .section-body { margin-left: 112px; }
+    .lead { margin-top: 0; font-size: 1.15rem; color: var(--muted); }
+    .quiet-line {
+      margin: 34px 0 0;
+      padding: 22px 24px;
+      background: var(--teal-soft);
+      border-radius: 4px 18px 18px 4px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .pressure-prompt { margin: 0 0 12px; font-weight: 700; }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 0 0 18px;
+    }
+    .chip {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink);
+      font-weight: 650;
+      line-height: 1.2;
+      transition: border-color .2s ease, background .2s ease, color .2s ease;
+    }
+    .chip:hover { border-color: var(--teal); }
+    .chip.selected { border-color: var(--teal); background: var(--teal); color: var(--surface); }
+    .pressure-response {
+      min-height: 1.7em;
+      margin: 0 0 28px;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .questions {
+      list-style: none;
+      margin: 30px 0;
+      padding: 0;
+      counter-reset: question;
+    }
+    .questions li {
+      counter-increment: question;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 18px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+      font-size: 1.12rem;
+      font-weight: 600;
+    }
+    .questions li:last-child { border-bottom: 1px solid var(--line); }
+    .questions li::before {
+      content: counter(question, decimal-leading-zero);
+      color: var(--teal);
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .three-selfs {
+      position: relative;
+      margin-top: 32px;
+      padding: 38px clamp(24px, 5vw, 52px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+    .three-selfs p { margin: 0; font-size: 1.12rem; }
+    .self-name {
+      padding: 0 .14em;
+      background: linear-gradient(transparent 62%, var(--yellow) 62%);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .examples {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .example {
+      position: relative;
+      min-width: 0;
+      padding: clamp(28px, 4vw, 40px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      box-shadow: 0 14px 36px rgba(37, 58, 52, .08);
+    }
+    .example-top { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+    .avatar {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 650;
+    }
+    .example:nth-child(2) .avatar { background: var(--orange-soft); color: var(--orange); }
+    .example-heading { min-width: 0; }
+    .fictional {
+      display: inline-block;
+      margin-bottom: 4px;
+      padding: 3px 8px;
+      color: var(--muted);
+      background: var(--paper-deep);
+      border-radius: 999px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+    }
+    h3 {
+      margin: 0;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+    .example p { margin: 0; }
+
+    .steps {
+      list-style: none;
+      margin: 28px 0 34px;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .steps li {
+      position: relative;
+      min-height: 88px;
+      padding: 18px 18px 18px 48px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      line-height: 1.35;
+    }
+    .steps li::before {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 18px;
+      width: 15px;
+      height: 15px;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+    }
+    .quick-picks { margin: 0 0 18px; }
+    .quick-picks .chip { font-size: .9rem; }
+    .step-form {
+      padding: clamp(24px, 5vw, 42px);
+      background: var(--teal-soft);
+      border-radius: var(--radius-lg);
+    }
+    .step-form label { display: block; margin-bottom: 12px; font-weight: 700; }
+    .input-row { display: flex; gap: 10px; }
+    input[type="text"] {
+      min-width: 0;
+      flex: 1;
+      padding: 15px 17px;
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--ink);
+    }
+    input[type="text"]::placeholder { color: var(--muted); opacity: .82; }
+    .commit-button {
+      padding: 15px 22px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--teal);
+      color: var(--paper);
+      font-weight: 700;
+    }
+    @media (prefers-color-scheme: dark) { .commit-button { color: #0d1b18; } }
+    .commit-button:hover { filter: brightness(.94); }
+    .confirmation {
+      min-height: 1.6em;
+      margin: 14px 0 0;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .support-list {
+      list-style: none;
+      margin: 30px 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .support-list li {
+      display: grid;
+      grid-template-columns: minmax(140px, .45fr) minmax(0, 1fr);
+      gap: 20px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .support-list li:last-child { border-bottom: 1px solid var(--line); }
+    .support-list strong { color: var(--teal); }
+
+    footer {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .footer-inner {
+      width: min(calc(100% - 36px), 940px);
+      margin: 0 auto;
+      padding: 64px 0 max(64px, env(safe-area-inset-bottom));
+    }
+    .disclaimer {
+      margin: 0 0 24px;
+      max-width: 780px;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.25;
+    }
+    .source, .credit { margin: 10px 0 0; color: color-mix(in srgb, var(--paper) 78%, transparent); font-size: .92rem; }
+
+    .reveal { opacity: 1; transform: none; }
+    .reveal.is-visible { animation: section-reveal .62s ease both; }
+    @keyframes section-reveal {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 820px) {
+      .nav-wrap { top: 8px; max-width: calc(100% - 16px); margin-top: 8px; margin-bottom: -68px; padding: 5px; }
+      nav { width: 100%; justify-content: center; }
+      nav a { padding: 7px 9px; font-size: .74rem; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 118px; }
+      .path-visual { min-height: 130px; order: -1; justify-content: flex-start; align-items: center; }
+      .path-line { margin-left: 4px; width: calc(100% - 8px); height: 4px; background: repeating-linear-gradient(to right, var(--line) 0 12px, transparent 12px 22px); }
+      .path-node { top: 50% !important; bottom: auto !important; left: auto; transform: translateY(-50%); }
+      .path-node:nth-of-type(2) { left: 1%; }
+      .path-node:nth-of-type(3) { left: 48%; }
+      .path-node:nth-of-type(4) { left: 93%; }
+      .path-label { top: calc(50% + 23px); left: 41%; width: 132px; }
+      .section-head { grid-template-columns: 62px minmax(0, 1fr); gap: 14px; }
+      .section-body { margin-left: 76px; }
+      .examples { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      html { scroll-padding-top: 86px; }
+      body { font-size: 17px; }
+      .nav-wrap { width: calc(100% - 16px); border-radius: 18px; }
+      nav { gap: 0; }
+      nav a { flex: 1 1 auto; padding: 7px 5px; font-size: .65rem; text-align: center; }
+      .hero { width: 100%; margin: 0; padding: 118px 22px 98px; }
+      .hero::before { width: 220px; height: 220px; right: -92px; top: 108px; }
+      .hero::after { height: 54px; }
+      h1 { font-size: clamp(3.65rem, 17.2vw, 4.7rem); }
+      .content { width: calc(100% - 28px); padding: 36px 0 70px; }
+      .section { padding: 58px 0; }
+      .section-head { display: block; }
+      .section-number { margin-bottom: 9px; }
+      .section-body { margin-left: 0; }
+      h2 { font-size: 2.65rem; }
+      .questions li { grid-template-columns: 36px 1fr; gap: 10px; font-size: 1.02rem; }
+      .three-selfs { padding: 28px 22px; border-radius: 20px; }
+      .examples { gap: 16px; }
+      .steps { grid-template-columns: 1fr; }
+      .input-row { flex-direction: column; }
+      .commit-button { width: 100%; }
+      .support-list li { grid-template-columns: 1fr; gap: 6px; }
+      .footer-inner { width: calc(100% - 32px); padding-top: 48px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="nav-wrap">
+    <div class="nav-inner">
+      <div class="nav-mark" aria-hidden="true">Your path</div>
+      <nav aria-label="Page sections">
+        <a href="#check-in">Check-in</a>
+        <a href="#three-selves">Three selves</a>
+        <a href="#examples">Examples</a>
+        <a href="#next-step">Next step</a>
+        <a href="#support">Support</a>
+      </nav>
+    </div>
+  </div>
+
+  <main id="main">
+    <header class="hero">
+      <div class="hero-copy">
+        <h1>Different Timeline, Still Progress</h1>
+        <p>Feeling behind doesn't mean you're failing. Your timeline can change and still lead somewhere meaningful.</p>
+      </div>
+      <div class="path-visual" aria-hidden="true">
+        <div class="path-line"></div>
+        <span class="path-node"></span>
+        <span class="path-node"></span>
+        <span class="path-node"></span>
+        <span class="path-label">You are here — and still moving.</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="section" id="check-in" aria-labelledby="check-in-title">
+        <div class="section-head">
+          <span class="section-number">01</span>
+          <h2 id="check-in-title">Where is the pressure coming from?</h2>
+        </div>
+        <div class="section-body">
+          <p class="lead">Take a quiet minute with these questions. There are no wrong answers — this is just for you.</p>
+          <p class="pressure-prompt">What feels heaviest right now?</p>
+          <div class="chip-row" id="pressure-chips" aria-label="Choose a source of pressure">
+            <button class="chip" type="button" data-response="School pressure can feel all-consuming, but one grade or deadline never defines your whole path.">School</button>
+            <button class="chip" type="button" data-response="Work can ask a lot of you; making room to pause is part of moving forward, too.">Work</button>
+            <button class="chip" type="button" data-response="Family expectations can be heavy, and your own pace and needs still deserve space.">Family</button>
+            <button class="chip" type="button" data-response="Social media shows highlights, not whole lives — your quieter progress still counts.">Social media</button>
+            <button class="chip" type="button" data-response="You do not need the perfect label for what you feel; noticing it is a meaningful start.">Something else</button>
+          </div>
+          <p class="pressure-response" id="pressure-response" role="status" aria-live="polite"></p>
+          <ol class="questions">
+            <li>What part of your timeline feels “late” right now — school, work, relationships, or something else?</li>
+            <li>Whose timeline are you comparing yourself to when that feeling shows up?</li>
+            <li>What is one thing in your life that IS moving forward, even slowly?</li>
+          </ol>
+          <p class="quiet-line">Noticing where the pressure comes from is already a step. You don't have to fix everything today.</p>
+        </div>
+      </section>
+
+      <section class="section reveal" id="three-selves" aria-labelledby="selves-title">
+        <div class="section-head">
+          <span class="section-number">02</span>
+          <h2 id="selves-title">The three selves</h2>
+        </div>
+        <div class="section-body">
+          <div class="three-selfs">
+            <p>It can help to name three versions of you. Your <span class="self-name">actual self</span> is who you are and what you can manage right now — your real schedule, energy, and responsibilities. Your <span class="self-name">ideal self</span> is the version you expected to become by now — the graduation date, job title, or milestone you pictured. Your <span class="self-name">social self</span> is how you imagine other people see your progress — the likes, comments, and questions like “so, what's next?” When the gap between these three feels huge, it's easy to read the distance as failure. But a gap is information, not a verdict. It shows you where expectations and reality differ — and that difference is something you can work with, one small step at a time.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="examples" aria-labelledby="examples-title">
+        <div class="section-head">
+          <span class="section-number">03</span>
+          <h2 id="examples-title">Changed plans, still moving</h2>
+        </div>
+        <div class="section-body">
+          <div class="examples">
+            <article class="example">
+              <div class="example-top">
+                <div class="avatar" aria-hidden="true">M</div>
+                <div class="example-heading">
+                  <span class="fictional">Fictional example 1</span>
+                  <h3>Mika</h3>
+                </div>
+              </div>
+              <p>Mika planned to finish her degree in four years, but she changed courses in her second year and needed an extra year. For months she avoided reunions because she felt embarrassed. What helped was naming one thing she could do each week — like finishing one requirement or learning one skill for her new field. She graduated a year “late” and now works in the field she actually chose. The delay didn't erase her progress; it redirected it.</p>
+            </article>
+            <article class="example">
+              <div class="example-top">
+                <div class="avatar" aria-hidden="true">P</div>
+                <div class="example-heading">
+                  <span class="fictional">Fictional example 2</span>
+                  <h3>Paolo</h3>
+                </div>
+              </div>
+              <p>Paolo works part-time to help his family while studying. His load is lighter each term, so his timeline is longer than his friends'. Seeing classmates graduate first stung. He started tracking small wins — a passed subject, a month of savings, a skill learned at work. His path is slower, but every term still counts. Progress isn't only speed; it's direction.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="next-step" aria-labelledby="step-title">
+        <div class="section-head">
+          <span class="section-number">04</span>
+          <h2 id="step-title">Choose one small step for this week</h2>
+        </div>
+        <div class="section-body">
+          <p class="lead">Big plans get easier when they shrink. Pick ONE realistic action for the next seven days:</p>
+          <ul class="steps">
+            <li>Message one trusted person about how you've been feeling</li>
+            <li>Write down three things you can do with what you have right now</li>
+            <li>Finish one small school or work task you've been postponing</li>
+            <li>List two strengths or roles you have outside school and work</li>
+            <li>Look up one support resource (below) and save its contact</li>
+          </ul>
+          <div class="step-form">
+            <div class="chip-row quick-picks" id="quick-picks" aria-label="Quick-pick a small step">
+              <button class="chip" type="button" data-step="Message one trusted person about how I've been feeling">Message a trusted person</button>
+              <button class="chip" type="button" data-step="Write down three things I can do with what I have right now">Write down 3 things I can do now</button>
+              <button class="chip" type="button" data-step="Finish one small school or work task I've been postponing">Finish one postponed task</button>
+              <button class="chip" type="button" data-step="List two strengths or roles I have outside school and work">List 2 strengths</button>
+              <button class="chip" type="button" data-step="Look up one support resource and save its contact">Save a support contact</button>
+            </div>
+            <label for="step-input">Write your step here — then do just that one thing.</label>
+            <div class="input-row">
+              <input id="step-input" type="text" maxlength="180" placeholder="My one small step is…" autocomplete="off" />
+              <button class="commit-button" id="commit-button" type="button">Choose this step</button>
+            </div>
+            <p class="confirmation" id="confirmation" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="support" aria-labelledby="support-title">
+        <div class="section-head">
+          <span class="section-number">05</span>
+          <h2 id="support-title">You don't have to figure this out alone</h2>
+        </div>
+        <div class="section-body">
+          <p class="lead">If the pressure feels heavy, talking helps. You could:</p>
+          <ul class="support-list">
+            <li><strong>A trusted friend</strong><span>“I've been feeling behind lately. Can I talk to you about it?”</span></li>
+            <li><strong>A teacher or mentor</strong><span>ask for perspective on your options, not just grades</span></li>
+            <li><strong>A school counselor or guidance office</strong><span>they're there for exactly these moments</span></li>
+            <li><strong>A family member you trust</strong><span>share one small worry first and see how it goes</span></li>
+          </ul>
+          <p class="quiet-line">Reaching out isn't weakness — it's how you get new ideas and steady support.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="disclaimer"><strong>This page is for awareness and support, not professional counseling.</strong> If you feel overwhelmed, please reach out to a counselor or trusted professional.</p>
+      <p class="source">Based on: Agarwal et al. (2020); Arnett (2000); Hasyim et al. (2024); Vogel et al. (2014).</p>
+      <p class="credit">Created by Christian Angelo C. Del Carmen as a class project draft.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var input = document.getElementById('step-input');
+      var button = document.getElementById('commit-button');
+      var confirmation = document.getElementById('confirmation');
+      var pressureResponse = document.getElementById('pressure-response');
+      var progress = document.getElementById('scroll-progress');
+      var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav a'));
+      var sections = Array.prototype.slice.call(document.querySelectorAll('.section'));
+
+      function chooseStep() {
+        var step = input.value.trim();
+        if (!step) {
+          confirmation.textContent = 'Start with a small, specific action you can do this week.';
+          input.focus();
+          return;
+        }
+        confirmation.textContent = 'That is enough for this week. One small step still counts.';
+      }
+
+      function selectChip(group, selected) {
+        Array.prototype.forEach.call(group.querySelectorAll('.chip'), function (chip) {
+          chip.classList.toggle('selected', chip === selected);
+          chip.setAttribute('aria-pressed', chip === selected ? 'true' : 'false');
+        });
+      }
+
+      document.getElementById('pressure-chips').addEventListener('click', function (event) {
+        var chip = event.target.closest('.chip');
+        if (!chip) return;
+        selectChip(event.currentTarget, chip);
+        pressureResponse.textContent = chip.getAttribute('data-response');
+      });
+
+      document.getElementById('quick-picks').addEventListener('click', function (event) {
+        var chip = event.target.closest('.chip');
+        if (!chip) return;
+        selectChip(event.currentTarget, chip);
+        input.value = chip.getAttribute('data-step');
+        confirmation.textContent = '';
+        input.focus();
+      });
+
+      function updateProgress() {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var value = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        progress.style.width = Math.min(100, Math.max(0, value)) + '%';
+      }
+
+      button.addEventListener('click', chooseStep);
+      input.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') chooseStep();
+      });
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        var navObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            navLinks.forEach(function (link) {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+            });
+          });
+        }, { rootMargin: '-24% 0px -62% 0px' });
+
+        sections.forEach(function (section) {
+          revealObserver.observe(section);
+          navObserver.observe(section);
+        });
+      } else {
+        sections.forEach(function (section) { section.classList.add('is-visible'); });
+      }
+    }());
+  </script>
+</body>
+</html>
