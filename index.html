@@ -810,13 +810,13 @@ nav a[aria-current="page"] {
 .page.active { animation: pageFade 300ms ease; }
 @media (prefers-reduced-motion: reduce) { .page.active { animation: none; } }
 
-/* Ambient dust, adapted from the museum site for this light theme: soft olive dots drifting upward. */
+/* Ambient dust, museum recipe made visible on this light theme: dark dots drifting upward. */
 #page-dust { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
-#page-dust i { position: absolute; border-radius: 50%; background: #657153; animation: dustRise linear infinite; }
+#page-dust i { position: absolute; border-radius: 50%; background: #30392F; animation: dustRise linear infinite; }
 @keyframes dustRise {
   from { transform: translateY(0); opacity: 0; }
-  12% { opacity: .28; }
-  85% { opacity: .22; }
+  12% { opacity: .6; }
+  85% { opacity: .5; }
   to { transform: translateY(-115vh); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) { #page-dust { display: none; } }
@@ -1298,7 +1298,7 @@ nav a[aria-current="page"] {
   layer.setAttribute('aria-hidden', 'true');
   for (var i = 0; i < 24; i++) {
     var dot = document.createElement('i');
-    var size = 2 + Math.random() * 2;
+    var size = 3 + Math.random() * 2;
     dot.style.width = size + 'px';
     dot.style.height = size + 'px';
     dot.style.left = (Math.random() * 100) + '%';
