@@ -707,6 +707,99 @@ nav a[aria-current="page"] {
   .feedback-table td[colspan] { text-align: left; }
 }
 
+/* Project review theme (sections 06 and 07 only, scoped under .review-theme) */
+.review-theme {
+  --r-bg: #F7F5F0;
+  --r-surface: #FFFFFF;
+  --r-ink: #1F2A2E;
+  --r-muted: #5B6770;
+  --r-line: #D9D4C9;
+  --r-accent: #1F6F78;
+  --r-accent-soft: #DDEEF0;
+  --r-warm: #B5651D;
+  --r-done: #2E7D5B;
+  --r-upcoming: #6B7A99;
+  --r-on-accent: #FFFFFF;
+  background: var(--r-bg);
+  color: var(--r-ink);
+}
+@media (prefers-color-scheme: dark) {
+  .review-theme {
+    --r-bg: #12181B;
+    --r-surface: #1A2327;
+    --r-ink: #E8EEF0;
+    --r-muted: #9FB0B7;
+    --r-line: #2D3A40;
+    --r-accent: #6CC4CE;
+    --r-accent-soft: #1E3A3F;
+    --r-warm: #E0A060;
+    --r-done: #6FD0A0;
+    --r-upcoming: #9DB0D6;
+    --r-on-accent: #12181B;
+  }
+}
+.review-theme h2 { color: var(--r-ink); }
+.review-theme .section-number { border-color: var(--r-line); color: var(--r-ink); }
+.review-theme .rubric-section { border-top-color: var(--r-line); }
+.review-theme .rt-lead { max-width: 760px; margin-top: 0; font-size: 1.05rem; line-height: 1.55; color: var(--r-ink); }
+.review-theme :focus-visible { outline: 3px solid var(--r-accent); outline-offset: 3px; }
+.review-theme .rt-pill { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--r-accent-soft); color: var(--r-ink); font-size: .82rem; font-weight: 700; line-height: 1.4; }
+.review-theme .rt-pill::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; background: var(--r-accent); vertical-align: 1px; }
+.review-theme .rt-pill.rt-done::before { background: var(--r-done); }
+.review-theme .rt-pill.rt-progress::before { background: var(--r-accent); }
+.review-theme .rt-pill.rt-upcoming::before { background: var(--r-upcoming); }
+.review-theme .rt-pill.rt-warm::before { background: var(--r-warm); }
+.review-theme details.rt-tab { border: 1px solid var(--r-line); border-radius: 12px; background: var(--r-surface); margin-bottom: 12px; }
+.review-theme details.rt-tab > summary { display: flex; align-items: center; min-height: 44px; padding: 12px 16px; font-weight: 700; cursor: pointer; list-style: none; }
+.review-theme details.rt-tab > summary::-webkit-details-marker { display: none; }
+.review-theme details.rt-tab > summary::after { content: "+"; margin-left: auto; font-size: 1.2rem; line-height: 1; }
+.review-theme details.rt-tab[open] > summary::after { content: "–"; }
+.review-theme .rt-panel-body { padding: 4px 16px 18px; }
+.review-theme .rt-tablist { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
+.review-theme .rt-tab-btn { min-height: 44px; padding: 10px 18px; border: 1px solid var(--r-line); border-radius: 999px; background: var(--r-surface); color: var(--r-ink); font-weight: 700; }
+.review-theme .rt-tab-btn[aria-selected="true"] { background: var(--r-accent); border-color: var(--r-accent); color: var(--r-on-accent); }
+.review-theme .rt-panel { background: var(--r-surface); border: 1px solid var(--r-line); border-radius: 12px; padding: 18px 16px; }
+.review-theme .rt-h { margin: 20px 0 10px; font-family: "Source Sans 3", sans-serif; font-size: 1.15rem; line-height: 1.3; color: var(--r-ink); }
+.review-theme .rt-h:first-child { margin-top: 0; }
+.review-theme .rt-table { width: 100%; border-collapse: collapse; margin: 0 0 16px; background: var(--r-surface); border: 1px solid var(--r-line); font-size: .92rem; line-height: 1.45; text-align: left; }
+.review-theme .rt-table caption { padding: 0 0 10px; font-weight: 700; text-align: left; color: var(--r-ink); }
+.review-theme .rt-table th, .review-theme .rt-table td { padding: 11px 13px; border-top: 1px solid var(--r-line); border-right: 1px solid var(--r-line); vertical-align: top; }
+.review-theme .rt-table th { background: var(--r-accent-soft); color: var(--r-ink); }
+.review-theme .rt-table th:last-child, .review-theme .rt-table td:last-child { border-right: 0; }
+.review-theme .rt-dl { margin: 0 0 16px; }
+.review-theme .rt-dl > div { padding: 12px 0; border-top: 1px solid var(--r-line); }
+.review-theme .rt-dl > div:last-child { border-bottom: 1px solid var(--r-line); }
+.review-theme .rt-dl dt { font-weight: 700; color: var(--r-ink); }
+.review-theme .rt-dl dd { margin: 2px 0 0; color: var(--r-muted); }
+.review-theme .rt-list { margin: 0 0 16px; padding-left: 1.2em; }
+.review-theme .rt-list li + li { margin-top: 8px; }
+.review-theme .rt-note { margin: 0 0 16px; color: var(--r-muted); font-size: .95rem; }
+.review-theme details.rt-inner { border: 1px solid var(--r-line); border-radius: 12px; margin: 0 0 16px; }
+.review-theme details.rt-inner > summary { min-height: 44px; display: flex; align-items: center; padding: 12px 16px; font-weight: 700; cursor: pointer; list-style: none; }
+.review-theme details.rt-inner > summary::-webkit-details-marker { display: none; }
+.review-theme details.rt-inner > summary::after { content: "+"; margin-left: auto; font-size: 1.2rem; line-height: 1; }
+.review-theme details.rt-inner[open] > summary::after { content: "–"; }
+.review-theme details.rt-inner .rt-table { border: 0; border-top: 1px solid var(--r-line); margin: 0; }
+.review-theme .rt-stop { margin: 40px 0 0; padding-top: 24px; border-top: 1px solid var(--r-line); font-weight: 700; text-align: center; }
+.review-theme .rt-stop-home { min-height: 44px; padding: 0; background: none; border: 0; color: var(--r-accent); font-weight: 700; text-decoration: underline; }
+@media (prefers-color-scheme: dark) {
+  .review-theme .page-count { color: var(--r-ink); }
+  .review-theme .page-button.previous { color: var(--r-ink); border-color: var(--r-line); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .review-theme .rt-tab-btn { transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease; }
+}
+@media (max-width: 590px) {
+  .review-theme .rt-table, .review-theme .rt-table tbody, .review-theme .rt-table tr, .review-theme .rt-table td { display: block; width: 100%; }
+  .review-theme .rt-table { border: 0; }
+  .review-theme .rt-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .review-theme .rt-table tr { margin-bottom: 12px; border: 1px solid var(--r-line); border-radius: 12px; background: var(--r-surface); }
+  .review-theme .rt-table td { padding: 10px 14px; border: 0; border-top: 1px solid var(--r-line); }
+  .review-theme .rt-table td:first-child { border-top: 0; }
+  .review-theme .rt-table td::before { content: attr(data-label) ": "; font-weight: 700; color: var(--r-muted); }
+  .review-theme details.rt-inner .rt-table { border: 0; }
+}
+
   </style>
 </head>
 <body>
@@ -868,47 +961,143 @@ nav a[aria-current="page"] {
       </footer>
     </div>
 
-    <div class="page page-final" id="project-review" data-title="Project review">
+    <div class="page page-final review-theme" id="project-review" data-title="Project review">
       <section class="rubric-section" aria-labelledby="built-title">
         <div class="section-head"><span class="section-number">06</span><h2 class="page-heading-target" id="built-title" tabindex="-1">How this was built</h2></div>
+        <!-- TODO for author
+          1. Phase 1 actual finish date: replace "[PLACEHOLDER: finish date]" in the Timeline tab.
+          2. Accessibility result: replace "[PLACEHOLDER]" in the Checks tab (Group B, row 4) with the Lighthouse accessibility score and the manual contrast check result.
+          3. Lessons: replace "[PLACEHOLDER: my 1-2 honest lessons and what I'd do differently]" in the Next steps tab with 1-2 honest lessons and what you would do differently.
+          4. Feedback log: fill in the Pending row after the classmate interviews on Oct 27-29. Do not invent feedback.
+        -->
         <div class="section-body">
-          <p class="lead">A small, clear plan kept the project moving, with planned and actual dates tracked side by side, while leaving room to improve after feedback.</p>
-          <ol class="project-timeline">
-            <li class="project-phase complete"><div class="phase-top"><strong>Phase 1 · Plan the website</strong><span class="phase-date">Oct 5–9, 2026</span><span class="phase-status">Completed</span></div><p>Set the purpose, audience, sections, and source material from the MS1 proposal. Finished inside the planned window, and the plan was revised on Oct 13 when mentor feedback arrived.</p></li>
-            <li class="project-phase complete"><div class="phase-top"><strong>Phase 2 · Make the website draft</strong><span class="phase-date">Oct 10–23</span><span class="phase-status">Completed</span></div><p>Wrote the core sections and added the fictional examples, source line, disclaimer, and matching social post. The full draft went live on Oct 16, a week ahead of the planned Oct 23 finish.</p></li>
-            <li class="project-phase current"><div class="phase-top"><strong>Phase 3 · Review and submit draft</strong><span class="phase-date">Oct 24–30</span><span class="phase-status">In progress</span></div><p>Interview two classmates (set for Oct 27–29), preview the page, test the share link, and submit the draft checkpoint on Oct 30. The share link was retested on Oct 22 and opened without a sign-in.</p></li>
-            <li class="project-phase"><div class="phase-top"><strong>Phase 4 · Final revisions and backup</strong><span class="phase-date">Nov 1–7</span><span class="phase-status">Upcoming</span></div><p>Apply useful feedback, complete the final check, and save separate backup copies.</p></li>
-          </ol>
-          <div class="note-grid">
-            <article class="project-note"><h3>Staying on track</h3><p>Phases 1 and 2 finished inside their planned windows, and the draft went live on Oct 16, ahead of the Oct 23 target. The scope stayed deliberately small, one basic static page, so quality could be protected under the time limit. Extra interactive features and regular social posting were saved for after draft feedback.</p></article>
-            <article class="project-note"><h3>Adaptations</h3><p>After mentor feedback on Oct 13, the draft checkpoint moved earlier to Oct 30. That leaves time to fix unclear parts and verify the share link. If classmates are unavailable for feedback interviews, a self-review checklist is ready as a fallback.</p></article>
+          <p class="rt-lead">A small plan kept this on track. 2 of 2 finished phases landed on or ahead of schedule.</p>
+          <div class="rt-tabs" data-tablabel="How this was built">
+            <details class="rt-tab" open>
+              <summary>Timeline</summary>
+              <div class="rt-panel-body">
+                <table class="rt-table">
+                  <caption>Planned dates compared with actual dates</caption>
+                  <thead><tr><th scope="col">Phase</th><th scope="col">Planned</th><th scope="col">Actual</th><th scope="col">Status</th></tr></thead>
+                  <tbody>
+                    <tr><td data-label="Phase">Phase 1 · Plan</td><td data-label="Planned">Oct 5–9</td><td data-label="Actual">[PLACEHOLDER: finish date]</td><td data-label="Status"><span class="rt-pill rt-done">Completed</span></td></tr>
+                    <tr><td data-label="Phase">Phase 2 · Draft</td><td data-label="Planned">Oct 10–23</td><td data-label="Actual">Live Oct 16 (7 days ahead)</td><td data-label="Status"><span class="rt-pill rt-done">Completed</span></td></tr>
+                    <tr><td data-label="Phase">Phase 3 · Review and submit</td><td data-label="Planned">Oct 24–30</td><td data-label="Actual">In progress (interviews Oct 27–29, submit Oct 30)</td><td data-label="Status"><span class="rt-pill rt-progress">In progress</span></td></tr>
+                    <tr><td data-label="Phase">Phase 4 · Final revisions and backup</td><td data-label="Planned">Nov 1–7</td><td data-label="Actual">Upcoming</td><td data-label="Status"><span class="rt-pill rt-upcoming">Upcoming</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+            <details class="rt-tab">
+              <summary>Tools &amp; people</summary>
+              <div class="rt-panel-body">
+                <dl class="rt-dl">
+                  <div><dt>Custom HTML, CSS and JavaScript</dt><dd>Made the interactive check-in chips and step picker possible.</dd></div>
+                  <div><dt>GitHub Pages</dt><dd>Gave a free public link and version history.</dd></div>
+                  <div><dt>Mentor feedback (Oct 13)</dt><dd>Moved the checkpoint earlier, to Oct 30.</dd></div>
+                  <div><dt>Incognito window test (Oct 22)</dt><dd>Confirmed no sign-in is needed to open the link.</dd></div>
+                  <div><dt>Drive MS2 Backup plus GitHub history</dt><dd>Protect the content with two copies.</dd></div>
+                  <div><dt>MS1 proposal</dt><dd>Reused as the content base, so no new research time was needed.</dd></div>
+                  <div><dt>Phone-first preview</dt><dd>Checked the page the way visitors open it, phone first, then laptop.</dd></div>
+                </dl>
+              </div>
+            </details>
+            <details class="rt-tab">
+              <summary>Adapting</summary>
+              <div class="rt-panel-body">
+                <ul class="rt-list">
+                  <li>Mentor feedback on Oct 13 moved the draft checkpoint earlier to Oct 30.</li>
+                  <li>The plan changed from Google Sites to custom code so the interactive parts could work.</li>
+                  <li>If classmates are unavailable, a self-review checklist covers the same indicators.</li>
+                </ul>
+              </div>
+            </details>
           </div>
-          <h3 class="subhead">Tools, materials &amp; people</h3>
-          <div class="resource-grid">
-            <div class="resource-card"><strong>Content base</strong><span>The MS1 proposal, reused so no new research time was needed</span></div><div class="resource-card"><strong>Main setup</strong><span>A laptop and a phone with internet</span></div><div class="resource-card"><strong>Page building</strong><span>Custom HTML, CSS and JavaScript, chosen over Google Sites so the check-in chips and step picker could be interactive</span></div><div class="resource-card"><strong>Hosting and versions</strong><span>GitHub Pages, a free public link where every version of the page stays saved</span></div><div class="resource-card"><strong>Preview testing</strong><span>Phone first, then laptop, the same way visitors would open the page</span></div><div class="resource-card"><strong>Peer input</strong><span>Two classmates in short feedback interviews</span></div><div class="resource-card"><strong>Guidance</strong><span>Mentor feedback, received and applied on Oct 13</span></div><div class="resource-card"><strong>Access check</strong><span>Incognito window link test, repeated on Oct 22</span></div><div class="resource-card"><strong>Backups</strong><span>The Drive MS2 Backup folder, plus the GitHub version history</span></div>
-          </div>
-          <p class="resource-note">The project plan originally specified a Google Sites draft, but the page was instead built as a coded one-page site, which allowed the interactive pressure check-in chips and next-step picker to work.</p>
         </div>
       </section>
 
       <section class="rubric-section" aria-labelledby="worked-title">
         <div class="section-head"><span class="section-number">07</span><h2 id="worked-title">Did it work?</h2></div>
         <div class="section-body">
-          <p class="lead">Before calling the draft done, I checked it against clear signs of success. Each one has a target, and the targets were set before I measured anything.</p>
-          <h3 class="subhead">Success indicators and results</h3>
-          <div class="feedback-table-wrap"><table class="feedback-table"><thead><tr><th>Success indicator</th><th>How it is measured</th><th>Target</th><th>Result</th></tr></thead><tbody><tr><td>A visitor can state the main message in one sentence</td><td>Classmate interview, question 1</td><td>Both interviewees state it without help</td><td>Pending, interviews Oct 27–29</td></tr><tr><td>No part of the page is confusing</td><td>Classmate interview, question 2</td><td>Every unclear part is logged and fixed in the final revisions</td><td>Pending, interviews Oct 27–29</td></tr><tr><td>Feedback turns into real changes</td><td>Classmate interview, question 3, and the feedback log below</td><td>Every accepted suggestion shows in the log with its change and date</td><td>Pending, interviews Oct 27–29</td></tr><tr><td>The page is readable on a phone without zooming</td><td>Phone and laptop preview check</td><td>Text readable and layout holds on both screens</td><td>Done, previewed on phone and laptop at the build</td></tr><tr><td>Both examples are clearly labeled as fictional</td><td>Reading the examples page</td><td>The fictional label shows on both stories</td><td>Done, labels are on the page</td></tr><tr><td>The source line and the support disclaimer are visible</td><td>Reading the page footer</td><td>Both lines present and easy to find</td><td>Done, both are in the footer</td></tr><tr><td>The mentor can open the shared link without signing in</td><td>Incognito window link test</td><td>The link opens to the full site</td><td>Done, retested Oct 22</td></tr><tr><td>One matching social media post is drafted</td><td>Checking the draft saved with the project files</td><td>The post matches the message of the site</td><td>Checked again at the Oct 30 draft checkpoint</td></tr></tbody></table></div>
-          <h3 class="subhead">How it is assessed</h3>
-          <ul class="assessment-methods"><li><strong>Three-question classmate interview.</strong> What is the main message? What part is unclear? What would you change?</li><li><strong>Phone and laptop preview checklist.</strong> Readability, layout, links, source line, and images.</li><li><strong>Incognito window link test.</strong> Confirms the mentor can open the shared page.</li><li><strong>Feedback log.</strong> Records what was received, what changed, and when.</li></ul>
-          <p class="pending-note"><strong>Assessment pending.</strong> Classmate interviews are scheduled for Oct 27–29. The feedback log will be filled in after those conversations.</p><p>I set the targets before doing any of the checks so the results would stay honest. Each interview question checks one indicator, and the log below shows what feedback led to what change. If my classmates become unavailable, I have a self-review checklist that covers the same indicators.</p>
-          <div class="feedback-table-wrap"><table class="feedback-table"><thead><tr><th>Feedback received</th><th>Change made</th><th>Date</th></tr></thead><tbody><tr><td colspan="3">Pending classmate interviews · Oct 27–29</td></tr></tbody></table></div>
-          <h3 class="subhead">Challenges, improvements, next steps</h3>
-          <div class="reflection-grid">
-            <article class="reflection-item"><h3>Challenges</h3><ul><li>Keeping psychology ideas in plain words without jargon</li><li>Making sure the examples read as fictional, not as real student stories</li></ul></article>
-            <article class="reflection-item"><h3>Opportunities</h3><ul><li>Expand the interactive check-in features after draft feedback</li><li>Begin regular social posting after the draft is reviewed</li></ul></article>
-            
+          <p class="rt-lead">The checks below show what the page does well and what still needs visitors to confirm. <span class="rt-pill rt-done">4 of 8 page checks done</span> <span class="rt-pill rt-warm">4 'does it help?' checks pending (interviews Oct 27-29)</span></p>
+          <div class="rt-tabs" data-tablabel="Did it work?">
+            <details class="rt-tab" open>
+              <summary>Checks</summary>
+              <div class="rt-panel-body">
+                <h3 class="rt-h">Does the page help?</h3>
+                <table class="rt-table">
+                  <caption>Four helpfulness checks, still waiting on interviews</caption>
+                  <thead><tr><th scope="col">Indicator</th><th scope="col">How measured</th><th scope="col">Target</th><th scope="col">Result</th></tr></thead>
+                  <tbody>
+                    <tr><td data-label="Indicator">Visitor rates "After reading, how much less behind or alone do I feel?" from 1 to 5</td><td data-label="How measured">Classmate interview, question 4</td><td data-label="Target">Average 3.5+</td><td data-label="Result"><span class="rt-pill rt-warm">Pending</span></td></tr>
+                    <tr><td data-label="Indicator">Visitor picks a small step in the step picker</td><td data-label="How measured">Classmate interview</td><td data-label="Target">Both interviewees pick one and say what they'd do</td><td data-label="Result"><span class="rt-pill rt-warm">Pending</span></td></tr>
+                    <tr><td data-label="Indicator">Five-second test: shown the home screen for 5 seconds, then states the message</td><td data-label="How measured">Five-second test in interview</td><td data-label="Target">Both get the gist</td><td data-label="Result"><span class="rt-pill rt-warm">Pending</span></td></tr>
+                    <tr><td data-label="Indicator">Accessibility check: Lighthouse accessibility score plus manual contrast check</td><td data-label="How measured">Lighthouse report and manual contrast check</td><td data-label="Target">90+</td><td data-label="Result">[PLACEHOLDER]</td></tr>
+                  </tbody>
+                </table>
+                <p class="rt-note">Targets were set before measuring. Only 2 classmates are involved, so results show direction, not proof. Question 4 is new for this check.</p>
+                <h3 class="rt-h">Does the page work?</h3>
+                <details class="rt-inner">
+                  <summary>See all 8 checks</summary>
+                  <table class="rt-table">
+                    <caption>Eight page checks and their results</caption>
+                    <thead><tr><th scope="col">Success indicator</th><th scope="col">How it is measured</th><th scope="col">Target</th><th scope="col">Result</th></tr></thead>
+                    <tbody>
+                      <tr><td data-label="Success indicator">A visitor can state the main message in one sentence</td><td data-label="How it is measured">Classmate interview, question 1</td><td data-label="Target">Both interviewees state it without help</td><td data-label="Result">Pending, interviews Oct 27–29</td></tr>
+                      <tr><td data-label="Success indicator">No part of the page is confusing</td><td data-label="How it is measured">Classmate interview, question 2</td><td data-label="Target">Every unclear part is logged and fixed in the final revisions</td><td data-label="Result">Pending, interviews Oct 27–29</td></tr>
+                      <tr><td data-label="Success indicator">Feedback turns into real changes</td><td data-label="How it is measured">Classmate interview, question 3, and the feedback log below</td><td data-label="Target">Every accepted suggestion shows in the log with its change and date</td><td data-label="Result">Pending, interviews Oct 27–29</td></tr>
+                      <tr><td data-label="Success indicator">The page is readable on a phone without zooming</td><td data-label="How it is measured">Phone and laptop preview check</td><td data-label="Target">Text readable and layout holds on both screens</td><td data-label="Result">Done, previewed on phone and laptop at the build</td></tr>
+                      <tr><td data-label="Success indicator">Both examples are clearly labeled as fictional</td><td data-label="How it is measured">Reading the examples page</td><td data-label="Target">The fictional label shows on both stories</td><td data-label="Result">Done, labels are on the page</td></tr>
+                      <tr><td data-label="Success indicator">The source line and the support disclaimer are visible</td><td data-label="How it is measured">Reading the page footer</td><td data-label="Target">Both lines present and easy to find</td><td data-label="Result">Done, both are in the footer</td></tr>
+                      <tr><td data-label="Success indicator">The mentor can open the shared link without signing in</td><td data-label="How it is measured">Incognito window link test</td><td data-label="Target">The link opens to the full site</td><td data-label="Result">Done, retested Oct 22</td></tr>
+                      <tr><td data-label="Success indicator">One matching social media post is drafted</td><td data-label="How it is measured">Checking the draft saved with the project files</td><td data-label="Target">The post matches the message of the site</td><td data-label="Result">Checked again at the Oct 30 draft checkpoint</td></tr>
+                    </tbody>
+                  </table>
+                </details>
+              </div>
+            </details>
+            <details class="rt-tab">
+              <summary>Challenges</summary>
+              <div class="rt-panel-body">
+                <ul class="rt-list">
+                  <li>Keeping psychology ideas in plain words.</li>
+                  <li>Keeping examples clearly fictional.</li>
+                  <li>Handling a sensitive topic without implying counseling.</li>
+                  <li>Switching from Google Sites to custom code.</li>
+                  <li>Tight timeline.</li>
+                  <li>Small, friendly feedback sample.</li>
+                </ul>
+              </div>
+            </details>
+            <details class="rt-tab">
+              <summary>Next steps</summary>
+              <div class="rt-panel-body">
+                <h3 class="rt-h">Recommendations</h3>
+                <ol class="rt-list">
+                  <li>If the helpfulness rating is under 3.5, simplify the check-in and add a more concrete example.</li>
+                  <li>If interviewees skip the step picker, make it more prominent.</li>
+                  <li>If the mobile test finds problems, fix those before adding features.</li>
+                </ol>
+                <p class="rt-note">Later: expand the interactive check-in and start regular posting after draft review.</p>
+                <h3 class="rt-h">Lessons</h3>
+                <p>MS1 showed why it helps to submit early and avoid last-minute issues. [PLACEHOLDER: my 1-2 honest lessons and what I'd do differently]</p>
+                <h3 class="rt-h">Long-term</h3>
+                <p>Review sources and support contacts every term, re-run link and Lighthouse checks, and keep the Drive backup current. Local support contacts must be verified before publishing.</p>
+                <details class="rt-inner">
+                  <summary>Feedback log</summary>
+                  <table class="rt-table">
+                    <caption>Feedback received and changes made</caption>
+                    <thead><tr><th scope="col">Feedback</th><th scope="col">Change made</th><th scope="col">Date</th><th scope="col">Status</th></tr></thead>
+                    <tbody>
+                      <tr><td data-label="Feedback">Classmate interviews (Oct 27–29)</td><td data-label="Change made">Not yet received</td><td data-label="Date">Pending</td><td data-label="Status"><span class="rt-pill rt-warm">Pending</span></td></tr>
+                    </tbody>
+                  </table>
+                </details>
+              </div>
+            </details>
           </div>
-          <div class="long-view"><h3>Lessons &amp; long-term view</h3><p>MS1 showed why it helps to submit early and avoid last-minute issues. This site is meant to stay useful over time as an awareness resource, and its text is backed up in Drive so the content survives.</p></div>
           <div class="page-controls"><button class="page-button previous" type="button" data-go="support">Previous: Support</button><span class="page-count">7 of 7</span><button class="page-button next" type="button" data-go="home">Back to home</button></div>
+          <p class="rt-stop">That's everything. Nothing more below. <button class="rt-stop-home" type="button" data-go="home">Back to home</button></p>
         </div>
       </section>
     </div>
@@ -1015,6 +1204,69 @@ nav a[aria-current="page"] {
   });
   window.addEventListener('popstate', function () { showPage(window.location.hash.slice(1) || 'home', { fromHistory: true, focus: true }); });
   showPage(window.location.hash.slice(1) || 'home', { fromHistory: true });
+}());
+  </script>
+  <script>
+(function () {
+  var groups = document.querySelectorAll('.rt-tabs');
+  groups.forEach(function (group, gi) {
+    var detailsList = [];
+    for (var i = 0; i < group.children.length; i++) {
+      if (group.children[i].tagName === 'DETAILS' && group.children[i].classList.contains('rt-tab')) detailsList.push(group.children[i]);
+    }
+    if (!detailsList.length) return;
+    var tablist = document.createElement('div');
+    tablist.className = 'rt-tablist';
+    tablist.setAttribute('role', 'tablist');
+    tablist.setAttribute('aria-label', group.getAttribute('data-tablabel') || 'Sections');
+    var panels = [];
+    detailsList.forEach(function (detail, i) {
+      var summary = detail.querySelector('summary');
+      var label = summary ? summary.textContent.trim() : ('Section ' + (i + 1));
+      var body = detail.querySelector('.rt-panel-body');
+      var tab = document.createElement('button');
+      tab.type = 'button';
+      tab.className = 'rt-tab-btn';
+      tab.id = 'rt-tab-' + gi + '-' + i;
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-controls', 'rt-panel-' + gi + '-' + i);
+      tab.textContent = label;
+      var panel = document.createElement('div');
+      panel.className = 'rt-panel';
+      panel.id = 'rt-panel-' + gi + '-' + i;
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('aria-labelledby', tab.id);
+      if (body) { while (body.firstChild) panel.appendChild(body.firstChild); }
+      tablist.appendChild(tab);
+      panels.push({ tab: tab, panel: panel });
+    });
+    function select(index, moveFocus) {
+      panels.forEach(function (p, i) {
+        var active = i === index;
+        p.tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        p.tab.tabIndex = active ? 0 : -1;
+        p.panel.hidden = !active;
+      });
+      if (moveFocus) panels[index].tab.focus();
+    }
+    panels.forEach(function (p, i) {
+      p.tab.addEventListener('click', function () { select(i, false); });
+    });
+    tablist.addEventListener('keydown', function (event) {
+      var current = panels.findIndex(function (p) { return p.tab.getAttribute('aria-selected') === 'true'; });
+      var next = -1;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (current + 1) % panels.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (current - 1 + panels.length) % panels.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = panels.length - 1;
+      if (next >= 0) { event.preventDefault(); select(next, true); }
+    });
+    var fragment = document.createDocumentFragment();
+    fragment.appendChild(tablist);
+    panels.forEach(function (p) { fragment.appendChild(p.panel); });
+    group.replaceChildren(fragment);
+    select(0, false);
+  });
 }());
   </script>
 </body>
