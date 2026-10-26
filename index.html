@@ -805,6 +805,22 @@ nav a[aria-current="page"] {
 .review-theme .section-number { margin: 0 auto 18px; }
 .review-theme .section-body { margin-left: 0; }
 
+/* Gentle page fade: each page fades in when it becomes active. */
+@keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
+.page.active { animation: pageFade 300ms ease; }
+@media (prefers-reduced-motion: reduce) { .page.active { animation: none; } }
+
+/* Ambient dust, adapted from the museum site for this light theme: soft olive dots drifting upward. */
+#page-dust { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
+#page-dust i { position: absolute; border-radius: 50%; background: #657153; animation: dustRise linear infinite; }
+@keyframes dustRise {
+  from { transform: translateY(0); opacity: 0; }
+  12% { opacity: .28; }
+  85% { opacity: .22; }
+  to { transform: translateY(-115vh); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { #page-dust { display: none; } }
+
   </style>
 </head>
 <body>
@@ -1272,6 +1288,27 @@ nav a[aria-current="page"] {
     group.replaceChildren(fragment);
     select(0, false);
   });
+}());
+  </script>
+  <script>
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var layer = document.createElement('div');
+  layer.id = 'page-dust';
+  layer.setAttribute('aria-hidden', 'true');
+  for (var i = 0; i < 24; i++) {
+    var dot = document.createElement('i');
+    var size = 2 + Math.random() * 2;
+    dot.style.width = size + 'px';
+    dot.style.height = size + 'px';
+    dot.style.left = (Math.random() * 100) + '%';
+    dot.style.bottom = '-10px';
+    var dur = 20 + Math.random() * 16;
+    dot.style.animationDuration = dur + 's';
+    dot.style.animationDelay = (-Math.random() * dur) + 's';
+    layer.appendChild(dot);
+  }
+  document.body.insertBefore(layer, document.body.firstChild);
 }());
   </script>
 </body>
