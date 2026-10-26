@@ -799,6 +799,11 @@ nav a[aria-current="page"] {
   .review-theme .rt-table td::before { content: attr(data-label) ": "; font-weight: 700; color: var(--r-muted); }
   .review-theme details.rt-inner .rt-table { border: 0; }
 }
+/* Center the review sections: the site's 112px body offset pushed this content right of the page center. */
+.review-theme .section-head { display: block; text-align: center; }
+.review-theme .section-head h2 { margin: 0 auto; }
+.review-theme .section-number { margin: 0 auto 18px; }
+.review-theme .section-body { margin-left: 0; }
 
   </style>
 </head>
