@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
   <meta name="description" content="A gentle reflection on the quarter life crisis, for young adults whose plans have changed." />
   <link rel="icon" href="data:," />
   <title>Quarter Life Crisis</title>
@@ -822,12 +822,14 @@ nav a[aria-current="page"] {
 @media (prefers-reduced-motion: reduce) { #page-dust { display: none; } }
 
   </style>
+  <link rel="stylesheet" href="assets/woodland.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="nav-wrap">
     <div class="nav-inner">
+      <a class="brand" href="#home" data-go="home" aria-label="Still growing, home"><svg viewBox="0 0 24 30" fill="none" aria-hidden="true"><path d="M12 28V12M12 20C1 20 2 9 2 9s11-1 10 11ZM12 14C12 3 22 2 22 2s2 11-10 12Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Still growing</a>
       <details class="page-menu" id="page-menu" open>
         <summary>Page menu <span id="current-page-label">Home</span></summary>
         <nav aria-label="Page menu">
@@ -843,19 +845,26 @@ nav a[aria-current="page"] {
     </div>
   </div>
 
-  <main id="main">
+  <div class="experience-bar">
+    <span class="journey-label">A little space to find your pace</span>
+    <div class="experience-settings" role="group" aria-label="Experience settings">
+      <button id="sound-toggle" class="setting-button" type="button" aria-pressed="true" aria-label="Transition sounds">♪ Sound on</button>
+      <button id="motion-toggle" class="setting-button" type="button" aria-pressed="true" aria-label="Animations and drifting leaves">Motion on</button>
+    </div>
+  </div>
+  <div class="journey-track" role="progressbar" aria-label="Reading progress" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1"><div class="journey-progress" id="journey-progress"></div></div>
+  <main id="main" tabindex="-1">
     <header class="page hero active" id="home" data-title="Home">
       <div class="hero-copy">
-        <h1 class="page-heading-target" tabindex="-1">Quarter Life Crisis</h1>
+        <span class="eyebrow">Growing at your own pace</span>
+        <h1 class="page-heading-target" tabindex="-1">Quarter Life<br /><em>Crisis</em></h1>
         <p>Different timelines, still progress. Feeling behind doesn't mean you're failing. Your timeline can change and still lead somewhere meaningful.</p>
+        <div class="hero-actions"><button class="primary-action" type="button" data-go="check-in">Find your next step <span aria-hidden="true">↗</span></button><span class="hero-note">A few quiet minutes. Just for you.</span></div>
       </div>
-      <div class="path-visual" aria-hidden="true">
-        <div class="path-line"></div>
-        <span class="path-node"></span>
-        <span class="path-node"></span>
-        <span class="path-node"></span>
-        <span class="path-label">You are here, and you are still moving.</span>
-      </div>
+      <figure class="hero-photo">
+        <img src="assets/forest-path.jpg" width="1200" height="1500" alt="Sunlight finding its way through tall trees along a quiet forest path" fetchpriority="high" />
+        <figcaption class="photo-caption"><span>A gentle reminder</span>You are here, and you are still growing.</figcaption>
+      </figure>
       <div class="page-controls">
         <span></span><span class="page-count">1 of 7</span>
         <button class="page-button next" type="button" data-go="check-in">Next: Check-in</button>
@@ -898,6 +907,7 @@ nav a[aria-current="page"] {
         <h2 class="page-heading-target" id="selves-title" tabindex="-1">The three selves</h2>
       </div>
       <div class="section-body">
+        <figure class="section-photo"><img src="assets/woodland-light.jpg" width="1100" height="733" loading="lazy" decoding="async" alt="Warm morning light falling across a woodland trail" /><figcaption>There is more than one way forward.<small>Your path is allowed to look different.</small></figcaption></figure>
         <div class="three-selfs">
           <p>It helps to think of yourself in three ways. Your <span class="self-name">actual self</span> is who you are right now, with your real schedule, your energy, and the responsibilities you actually have. Your <span class="self-name">ideal self</span> is who you expected to be by this point, like the graduation date or the job you pictured years ago. Your <span class="self-name">social self</span> is how you think other people see your progress, through likes, comments, and questions like “so, what's next?” When these three feel far apart, it is easy to feel like you failed. The gap only shows where your expectations and your real life do not match yet. You can work on that difference slowly, one small step at a time.</p>
         </div>
@@ -967,6 +977,7 @@ nav a[aria-current="page"] {
       <section class="section" aria-labelledby="support-title">
         <div class="section-head"><span class="section-number">05</span><h2 class="page-heading-target" id="support-title" tabindex="-1">You don't have to figure this out alone</h2></div>
         <div class="section-body">
+        <figure class="section-photo"><img src="assets/woodland-light.jpg" width="1100" height="733" loading="lazy" decoding="async" alt="Warm morning light falling across a woodland trail" /><figcaption>There is more than one way forward.<small>Your path is allowed to look different.</small></figcaption></figure>
           <p class="lead">If the pressure feels heavy, talking helps. You could:</p>
           <ul class="support-list">
             <li><strong>A trusted friend</strong><span>“I've been feeling behind lately. Can I talk to you about it?”</span></li><li><strong>A teacher or mentor</strong><span>ask for perspective on your options, not just grades</span></li><li><strong>A school counselor or guidance office</strong><span>they're there for exactly these moments</span></li><li><strong>A family member you trust</strong><span>share one small worry first and see how it goes</span></li>
@@ -1123,7 +1134,8 @@ nav a[aria-current="page"] {
       </section>
     </div>
   </main>
-
+  <div class="site-signoff"><span>Different timelines. Still progress.</span><span>Nature photography via <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a> · A class project by Christian Angelo C. Del Carmen</span></div>
+  <script src="assets/experience.js"></script>
   <script>
 (function () {
   var input = document.getElementById('step-input');
@@ -1187,10 +1199,11 @@ nav a[aria-current="page"] {
     confirmation.replaceChildren();
   });
 
-  function showPage(id, options) {
+  function renderPage(id, options) {
     var target = document.getElementById(id);
     if (!target || !target.classList.contains('page')) target = document.getElementById('home');
     var targetId = target.id;
+    window.woodlandExperience.update(targetId);
     pages.forEach(function (page) {
       var active = page === target;
       page.classList.toggle('active', active);
@@ -1203,7 +1216,7 @@ nav a[aria-current="page"] {
       else link.removeAttribute('aria-current');
     });
     currentLabel.textContent = target.getAttribute('data-title') || 'Home';
-    if (window.innerWidth <= 590) pageMenu.open = false;
+    pageMenu.open = window.innerWidth > 590;
     if (!options || !options.fromHistory) {
       if (window.location.hash !== '#' + targetId) window.history.pushState({ page: targetId }, '', '#' + targetId);
     }
@@ -1214,6 +1227,22 @@ nav a[aria-current="page"] {
     }
   }
 
+  var activeTransition;
+  function showPage(id, options) {
+    var target = document.getElementById(id);
+    if (!target || !target.classList.contains('page')) id = 'home';
+    var current = document.querySelector('.page.active');
+    var changed = current && current.id !== id;
+    if (activeTransition) activeTransition.skipTransition();
+    if (changed && options && options.focus) window.woodlandExperience.play();
+    if (changed && document.startViewTransition && document.documentElement.dataset.motion === 'on') {
+      activeTransition = document.startViewTransition(function () { renderPage(id, options); });
+      activeTransition.finished.catch(function () {});
+    } else {
+      renderPage(id, options);
+    }
+  }
+
   navLinks.forEach(function (link) {
     link.addEventListener('click', function (event) {
       event.preventDefault();
@@ -1221,8 +1250,9 @@ nav a[aria-current="page"] {
     });
   });
   pageButtons.forEach(function (button) {
-    button.addEventListener('click', function () { showPage(button.getAttribute('data-go'), { focus: true }); });
+    button.addEventListener('click', function (event) { event.preventDefault(); showPage(button.getAttribute('data-go'), { focus: true }); });
   });
+  window.matchMedia('(max-width: 590px)').addEventListener('change', function (event) { pageMenu.open = !event.matches; });
   window.addEventListener('popstate', function () { showPage(window.location.hash.slice(1) || 'home', { fromHistory: true, focus: true }); });
   showPage(window.location.hash.slice(1) || 'home', { fromHistory: true });
 }());
@@ -1290,26 +1320,6 @@ nav a[aria-current="page"] {
   });
 }());
   </script>
-  <script>
-(function () {
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var layer = document.createElement('div');
-  layer.id = 'page-dust';
-  layer.setAttribute('aria-hidden', 'true');
-  for (var i = 0; i < 24; i++) {
-    var dot = document.createElement('i');
-    var size = 3 + Math.random() * 2;
-    dot.style.width = size + 'px';
-    dot.style.height = size + 'px';
-    dot.style.left = (Math.random() * 100) + '%';
-    dot.style.bottom = '-10px';
-    var dur = 20 + Math.random() * 16;
-    dot.style.animationDuration = dur + 's';
-    dot.style.animationDelay = (-Math.random() * dur) + 's';
-    layer.appendChild(dot);
-  }
-  document.body.insertBefore(layer, document.body.firstChild);
-}());
-  </script>
+
 </body>
 </html>
