@@ -33,6 +33,6 @@ The project review includes the original pending interview results, accessibilit
 
 ## Peer reviews
 
-The Leave a review page accepts four ratings and written feedback without a reviewer account. Submissions are stored privately by the UTS Peer Reviews service. The owner inbox is https://uts-peer-reviews-angelo.swiftcamel2049.chatgpt.site ; its access code is configured only in the backend ADMIN_KEY secret, never in this repository. Reviewers still need to complete any required class review sheet separately.
+The Leave a review page accepts four ratings and written feedback without a reviewer account. New submissions explicitly consent to appearing as public stickers on the review board. Names, ratings and written answers are public; class/section and submission IDs remain private. Existing private reviews stay private. Submissions are stored by the UTS Peer Reviews service. The owner inbox is https://uts-peer-reviews-angelo.swiftcamel2049.chatgpt.site ; its access code is configured only in the backend ADMIN_KEY secret, never in this repository. Reviewers still need to complete any required class review sheet separately.
 
 The project-review prose was simplified without adding interview results or an unmeasured accessibility score.
