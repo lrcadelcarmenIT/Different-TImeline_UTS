@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
   <meta name="description" content="A gentle reflection on the quarter life crisis, for young adults whose plans have changed." />
   <link rel="icon" href="data:," />
   <title>Quarter Life Crisis</title>
@@ -11,7 +11,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650;6..72,700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --cream: #F5F0E6;
   --sage: #B8C6A1;
   --olive: #657153;
@@ -23,18 +23,6 @@
   --max: 1040px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --cream: #F5F0E6;
-    --sage: #B8C6A1;
-    --olive: #657153;
-    --forest: #30392F;
-    --clay: #C98770;
-    --line: #65715366;
-    --line-soft: #65715333;
-    --shadow: 0 16px 34px #30392F14;
-  }
-}
 
 * { box-sizing: border-box; }
 html { scroll-behavior: auto; scroll-padding-top: 116px; }
@@ -709,34 +697,19 @@ nav a[aria-current="page"] {
 
 /* Project review theme (sections 06 and 07 only, scoped under .review-theme) */
 .review-theme {
-  --r-bg: #F7F5F0;
-  --r-surface: #FFFFFF;
-  --r-ink: #1F2A2E;
-  --r-muted: #5B6770;
-  --r-line: #D9D4C9;
-  --r-accent: #1F6F78;
-  --r-accent-soft: #DDEEF0;
-  --r-warm: #B5651D;
-  --r-done: #2E7D5B;
-  --r-upcoming: #6B7A99;
-  --r-on-accent: #FFFFFF;
+  --r-bg: var(--cream);
+  --r-surface: #FFFDF7;
+  --r-ink: var(--forest);
+  --r-muted: var(--olive);
+  --r-line: var(--line);
+  --r-accent: var(--olive);
+  --r-accent-soft: #E4EADB;
+  --r-warm: var(--clay);
+  --r-done: var(--forest);
+  --r-upcoming: var(--olive);
+  --r-on-accent: var(--cream);
   background: var(--r-bg);
   color: var(--r-ink);
-}
-@media (prefers-color-scheme: dark) {
-  .review-theme {
-    --r-bg: #12181B;
-    --r-surface: #1A2327;
-    --r-ink: #E8EEF0;
-    --r-muted: #9FB0B7;
-    --r-line: #2D3A40;
-    --r-accent: #6CC4CE;
-    --r-accent-soft: #1E3A3F;
-    --r-warm: #E0A060;
-    --r-done: #6FD0A0;
-    --r-upcoming: #9DB0D6;
-    --r-on-accent: #12181B;
-  }
 }
 .review-theme h2 { color: var(--r-ink); }
 .review-theme .section-number { border-color: var(--r-line); color: var(--r-ink); }
@@ -782,10 +755,6 @@ nav a[aria-current="page"] {
 .review-theme details.rt-inner .rt-table { border: 0; border-top: 1px solid var(--r-line); margin: 0; }
 .review-theme .rt-stop { margin: 40px 0 0; padding-top: 24px; border-top: 1px solid var(--r-line); font-weight: 700; text-align: center; }
 .review-theme .rt-stop-home { min-height: 44px; padding: 0; background: none; border: 0; color: var(--r-accent); font-weight: 700; text-decoration: underline; }
-@media (prefers-color-scheme: dark) {
-  .review-theme .page-count { color: var(--r-ink); }
-  .review-theme .page-button.previous { color: var(--r-ink); border-color: var(--r-line); }
-}
 @media (prefers-reduced-motion: no-preference) {
   .review-theme .rt-tab-btn { transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease; }
 }
