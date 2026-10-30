@@ -1,6 +1,6 @@
 # Different timelines, still progress
 
-A static, seven-chapter awareness and reflection website about the quarter-life crisis. Open `index.html` in a browser, or serve this folder with any static web server. No build tools or dependencies are required. Compatible with GitHub Pages, including project subdirectories.
+A static, eight-chapter awareness and reflection website about the quarter-life crisis. Open `index.html` in a browser, or serve this folder with any static web server. No build tools or dependencies are required. Compatible with GitHub Pages, including project subdirectories.
 
 ## Woodland theme
 
@@ -29,3 +29,10 @@ Google Fonts loads Newsreader and Source Sans 3 when available; system serif/san
 ## Author follow-up
 
 The project review includes the original pending interview results, accessibility score, finish date, and personal lessons. Replace these with actual evidence before final submission; no feedback or scores have been fabricated.
+
+
+## Peer reviews
+
+The Leave a review page accepts four ratings and written feedback without a reviewer account. Submissions are stored privately by the UTS Peer Reviews service. The owner inbox is https://uts-peer-reviews-angelo.swiftcamel2049.chatgpt.site ; its access code is configured only in the backend ADMIN_KEY secret, never in this repository. Reviewers still need to complete any required class review sheet separately.
+
+The project-review prose was simplified without adding interview results or an unmeasured accessibility score.

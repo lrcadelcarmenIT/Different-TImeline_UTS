@@ -822,6 +822,7 @@ nav a[aria-current="page"] {
 @media (prefers-reduced-motion: reduce) { #page-dust { display: none; } }
 
   </style>
+<link rel="stylesheet" href="assets/peer-review.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -838,6 +839,7 @@ nav a[aria-current="page"] {
           <a href="#next-step" data-page="next-step">Next step</a>
           <a href="#support" data-page="support">Support</a>
           <a href="#project-review" data-page="project-review">Project review</a>
+          <a href="#peer-review" data-page="peer-review">Leave a review</a>
         </nav>
       </details>
     </div>
@@ -857,7 +859,7 @@ nav a[aria-current="page"] {
         <span class="path-label">You are here, and you are still moving.</span>
       </div>
       <div class="page-controls">
-        <span></span><span class="page-count">1 of 7</span>
+        <span></span><span class="page-count">1 of 8</span>
         <button class="page-button next" type="button" data-go="check-in">Next: Check-in</button>
       </div>
     </header>
@@ -886,7 +888,7 @@ nav a[aria-current="page"] {
         <p class="quiet-line">Noticing where the pressure comes from is already a step. You don't have to fix everything today.</p>
         <div class="page-controls">
           <button class="page-button previous" type="button" data-go="home">Previous: Home</button>
-          <span class="page-count">2 of 7</span>
+          <span class="page-count">2 of 8</span>
           <button class="page-button next" type="button" data-go="three-selves">Next: Three selves</button>
         </div>
       </div>
@@ -903,7 +905,7 @@ nav a[aria-current="page"] {
         </div>
         <div class="page-controls">
           <button class="page-button previous" type="button" data-go="check-in">Previous: Check-in</button>
-          <span class="page-count">3 of 7</span>
+          <span class="page-count">3 of 8</span>
           <button class="page-button next" type="button" data-go="examples">Next: Examples</button>
         </div>
       </div>
@@ -927,7 +929,7 @@ nav a[aria-current="page"] {
         </div>
         <div class="page-controls">
           <button class="page-button previous" type="button" data-go="three-selves">Previous: Three selves</button>
-          <span class="page-count">4 of 7</span>
+          <span class="page-count">4 of 8</span>
           <button class="page-button next" type="button" data-go="next-step">Next: Small step</button>
         </div>
       </div>
@@ -957,7 +959,7 @@ nav a[aria-current="page"] {
         </div>
         <div class="page-controls">
           <button class="page-button previous" type="button" data-go="examples">Previous: Examples</button>
-          <span class="page-count">5 of 7</span>
+          <span class="page-count">5 of 8</span>
           <button class="page-button next" type="button" data-go="support">Next: Support</button>
         </div>
       </div>
@@ -973,7 +975,7 @@ nav a[aria-current="page"] {
           </ul>
           <p class="quiet-line">Asking for help is not a weakness. It is how you get new ideas and people who can support you.</p>
           <div class="page-controls">
-            <button class="page-button previous" type="button" data-go="next-step">Previous: Small step</button><span class="page-count">6 of 7</span><button class="page-button next" type="button" data-go="project-review">Next: Project review</button>
+            <button class="page-button previous" type="button" data-go="next-step">Previous: Small step</button><span class="page-count">6 of 8</span><button class="page-button next" type="button" data-go="project-review">Next: Project review</button>
           </div>
         </div>
       </section>
@@ -984,15 +986,10 @@ nav a[aria-current="page"] {
 
     <div class="page page-final review-theme" id="project-review" data-title="Project review">
       <section class="rubric-section" aria-labelledby="built-title">
-        <div class="section-head"><span class="section-number">06</span><h2 class="page-heading-target" id="built-title" tabindex="-1">How this was built</h2></div>
-        <!-- TODO for author
-          1. Phase 1 actual finish date: replace "[PLACEHOLDER: finish date]" in the Timeline tab.
-          2. Accessibility result: replace "[PLACEHOLDER]" in the Checks tab (Group B, row 4) with the Lighthouse accessibility score and the manual contrast check result.
-          3. Lessons: replace "[PLACEHOLDER: my 1-2 honest lessons and what I'd do differently]" in the Next steps tab with 1-2 honest lessons and what you would do differently.
-        -->
+        <div class="section-head"><span class="section-number">06</span><h2 class="page-heading-target" id="built-title" tabindex="-1">Making the site</h2></div>
         <div class="section-body">
-          <p class="rt-lead">A small plan kept this on track. 2 of 2 finished phases landed on or ahead of schedule.</p>
-          <div class="rt-tabs" data-tablabel="How this was built">
+          <p class="rt-lead">The project started with a proposal, then moved into a working website. The draft was online by October 16. Feedback and final revisions are the next part.</p>
+          <div class="rt-tabs" data-tablabel="Making the site">
             <details class="rt-tab" open>
               <summary>Timeline</summary>
               <div class="rt-panel-body">
@@ -1000,7 +997,7 @@ nav a[aria-current="page"] {
                   <caption>Planned dates compared with actual dates</caption>
                   <thead><tr><th scope="col">Phase</th><th scope="col">Planned</th><th scope="col">Actual</th><th scope="col">Status</th></tr></thead>
                   <tbody>
-                    <tr><td data-label="Phase">Phase 1 · Plan</td><td data-label="Planned">Oct 5–9</td><td data-label="Actual">[PLACEHOLDER: finish date]</td><td data-label="Status"><span class="rt-pill rt-done">Completed</span></td></tr>
+                    <tr><td data-label="Phase">Phase 1 · Plan</td><td data-label="Planned">Oct 5–9</td><td data-label="Actual">Finish date not recorded</td><td data-label="Status"><span class="rt-pill rt-done">Completed</span></td></tr>
                     <tr><td data-label="Phase">Phase 2 · Draft</td><td data-label="Planned">Oct 10–23</td><td data-label="Actual">Live Oct 16 (7 days ahead)</td><td data-label="Status"><span class="rt-pill rt-done">Completed</span></td></tr>
                     <tr><td data-label="Phase">Phase 3 · Review and submit</td><td data-label="Planned">Oct 24–30</td><td data-label="Actual">In progress (interviews Oct 27–29, submit Oct 30)</td><td data-label="Status"><span class="rt-pill rt-progress">In progress</span></td></tr>
                     <tr><td data-label="Phase">Phase 4 · Final revisions and backup</td><td data-label="Planned">Nov 1–7</td><td data-label="Actual">Upcoming</td><td data-label="Status"><span class="rt-pill rt-upcoming">Upcoming</span></td></tr>
@@ -1009,26 +1006,26 @@ nav a[aria-current="page"] {
               </div>
             </details>
             <details class="rt-tab">
-              <summary>Tools &amp; people</summary>
+              <summary>What I used</summary>
               <div class="rt-panel-body">
                 <dl class="rt-dl">
-                  <div><dt>Custom HTML, CSS and JavaScript</dt><dd>Made the interactive check-in chips and step picker possible.</dd></div>
-                  <div><dt>GitHub Pages</dt><dd>Gave a free public link and version history.</dd></div>
+                  <div><dt>Custom HTML, CSS and JavaScript</dt><dd>Used for the pages, check-in buttons and small-step picker.</dd></div>
+                  <div><dt>GitHub Pages</dt><dd>Hosts the site for free and keeps a history of changes.</dd></div>
                   <div><dt>Mentor feedback (Oct 13)</dt><dd>Moved the checkpoint earlier, to Oct 30.</dd></div>
                   <div><dt>Incognito window test (Oct 22)</dt><dd>Confirmed no sign-in is needed to open the link.</dd></div>
-                  <div><dt>Drive MS2 Backup plus GitHub history</dt><dd>Protect the content with two copies.</dd></div>
-                  <div><dt>MS1 proposal</dt><dd>Reused as the content base, so no new research time was needed.</dd></div>
-                  <div><dt>Phone-first preview</dt><dd>Checked the page the way visitors open it, phone first, then laptop.</dd></div>
+                  <div><dt>Drive MS2 Backup plus GitHub history</dt><dd>Keep a backup alongside the live site.</dd></div>
+                  <div><dt>MS1 proposal</dt><dd>Provided the starting point for the topic and page content.</dd></div>
+                  <div><dt>Phone-first preview</dt><dd>Checked the layout on a phone and a laptop.</dd></div>
                 </dl>
               </div>
             </details>
             <details class="rt-tab">
-              <summary>Adapting</summary>
+              <summary>Changes to the plan</summary>
               <div class="rt-panel-body">
                 <ul class="rt-list">
                   <li>Mentor feedback on Oct 13 moved the draft checkpoint earlier to Oct 30.</li>
                   <li>The plan changed from Google Sites to custom code so the interactive parts could work.</li>
-                  <li>If classmates are unavailable, a self-review checklist covers the same indicators.</li>
+                  <li>The site now has a peer-review form, so classmates can leave feedback when they have time. A self-check can help spot issues, but it does not replace their feedback.</li>
                 </ul>
               </div>
             </details>
@@ -1037,35 +1034,35 @@ nav a[aria-current="page"] {
       </section>
 
       <section class="rubric-section" aria-labelledby="worked-title">
-        <div class="section-head"><span class="section-number">07</span><h2 id="worked-title">Did it work?</h2></div>
+        <div class="section-head"><span class="section-number">07</span><h2 id="worked-title">What still needs checking</h2></div>
         <div class="section-body">
-          <p class="rt-lead">The checks below show what the page does well and what still needs visitors to confirm. <span class="rt-pill rt-done">4 of 8 page checks done</span> <span class="rt-pill rt-warm">4 'does it help?' checks pending (interviews Oct 27-29)</span></p>
-          <div class="rt-tabs" data-tablabel="Did it work?">
+          <p class="rt-lead">The site is working, but that alone does not tell me whether the message helps people. The checks below separate what has been built from what still needs feedback.</p>
+          <div class="rt-tabs" data-tablabel="What still needs checking">
             <details class="rt-tab" open>
               <summary>Checks</summary>
               <div class="rt-panel-body">
-                <h3 class="rt-h">Does the page help?</h3>
+                <h3 class="rt-h">Feedback I’m looking for</h3>
                 <table class="rt-table">
-                  <caption>Four helpfulness checks, still waiting on interviews</caption>
+                  <caption>Feedback targets and results</caption>
                   <thead><tr><th scope="col">Indicator</th><th scope="col">How measured</th><th scope="col">Target</th><th scope="col">Result</th></tr></thead>
                   <tbody>
                     <tr><td data-label="Indicator">Visitor rates "After reading, how much less behind or alone do I feel?" from 1 to 5</td><td data-label="How measured">Classmate interview, question 4</td><td data-label="Target">Average 3.5+</td><td data-label="Result"><span class="rt-pill rt-warm">Pending</span></td></tr>
                     <tr><td data-label="Indicator">Visitor picks a small step in the step picker</td><td data-label="How measured">Classmate interview</td><td data-label="Target">Both interviewees pick one and say what they'd do</td><td data-label="Result"><span class="rt-pill rt-warm">Pending</span></td></tr>
                     <tr><td data-label="Indicator">Five-second test: shown the home screen for 5 seconds, then states the message</td><td data-label="How measured">Five-second test in interview</td><td data-label="Target">Both get the gist</td><td data-label="Result"><span class="rt-pill rt-warm">Pending</span></td></tr>
-                    <tr><td data-label="Indicator">Accessibility check: Lighthouse accessibility score plus manual contrast check</td><td data-label="How measured">Lighthouse report and manual contrast check</td><td data-label="Target">90+</td><td data-label="Result">[PLACEHOLDER]</td></tr>
+                    <tr><td data-label="Indicator">Accessibility check: Lighthouse accessibility score plus manual contrast check</td><td data-label="How measured">Lighthouse report and manual contrast check</td><td data-label="Target">90+</td><td data-label="Result">Not measured yet</td></tr>
                   </tbody>
                 </table>
-                <p class="rt-note">Targets were set before measuring. Only 2 classmates are involved, so results show direction, not proof. Question 4 is new for this check.</p>
-                <h3 class="rt-h">Does the page work?</h3>
+                <p class="rt-note">The original plan was to ask two classmates. Their feedback can point out problems, but it is a small sample. Results will be added after the reviews are collected.</p>
+                <h3 class="rt-h">Site checks</h3>
                 <details class="rt-inner">
                   <summary>See all 8 checks</summary>
                   <table class="rt-table">
                     <caption>Eight page checks and their results</caption>
                     <thead><tr><th scope="col">Success indicator</th><th scope="col">How it is measured</th><th scope="col">Target</th><th scope="col">Result</th></tr></thead>
                     <tbody>
-                      <tr><td data-label="Success indicator">A visitor can state the main message in one sentence</td><td data-label="How it is measured">Classmate interview, question 1</td><td data-label="Target">Both interviewees state it without help</td><td data-label="Result">Pending, interviews Oct 27–29</td></tr>
-                      <tr><td data-label="Success indicator">No part of the page is confusing</td><td data-label="How it is measured">Classmate interview, question 2</td><td data-label="Target">Every unclear part is logged and fixed in the final revisions</td><td data-label="Result">Pending, interviews Oct 27–29</td></tr>
-                      <tr><td data-label="Success indicator">Feedback turns into real changes</td><td data-label="How it is measured">Classmate interview, question 3, and the feedback log below</td><td data-label="Target">Every accepted suggestion shows in the log with its change and date</td><td data-label="Result">Pending, interviews Oct 27–29</td></tr>
+                      <tr><td data-label="Success indicator">A visitor can state the main message in one sentence</td><td data-label="How it is measured">Classmate interview, question 1</td><td data-label="Target">Both interviewees state it without help</td><td data-label="Result">Waiting for classmate feedback</td></tr>
+                      <tr><td data-label="Success indicator">No part of the page is confusing</td><td data-label="How it is measured">Classmate interview, question 2</td><td data-label="Target">Every unclear part is logged and fixed in the final revisions</td><td data-label="Result">Waiting for classmate feedback</td></tr>
+                      <tr><td data-label="Success indicator">Feedback turns into real changes</td><td data-label="How it is measured">Classmate interview, question 3, and the revision history</td><td data-label="Target">Every accepted suggestion shows in the log with its change and date</td><td data-label="Result">Waiting for classmate feedback</td></tr>
                       <tr><td data-label="Success indicator">The page is readable on a phone without zooming</td><td data-label="How it is measured">Phone and laptop preview check</td><td data-label="Target">Text readable and layout holds on both screens</td><td data-label="Result">Done, previewed on phone and laptop at the build</td></tr>
                       <tr><td data-label="Success indicator">Both examples are clearly labeled as fictional</td><td data-label="How it is measured">Reading the examples page</td><td data-label="Target">The fictional label shows on both stories</td><td data-label="Result">Done, labels are on the page</td></tr>
                       <tr><td data-label="Success indicator">The source line and the support disclaimer are visible</td><td data-label="How it is measured">Reading the page footer</td><td data-label="Target">Both lines present and easy to find</td><td data-label="Result">Done, both are in the footer</td></tr>
@@ -1080,38 +1077,39 @@ nav a[aria-current="page"] {
               <summary>Challenges</summary>
               <div class="rt-panel-body">
                 <ul class="rt-list">
-                  <li>Keeping psychology ideas in plain words.</li>
+                  <li>Explaining the three selves without making the page feel like a textbook.</li>
                   <li>Keeping examples clearly fictional.</li>
-                  <li>Handling a sensitive topic without implying counseling.</li>
+                  <li>Keeping the topic supportive while being clear that the site is not counseling.</li>
                   <li>Switching from Google Sites to custom code.</li>
-                  <li>Tight timeline.</li>
-                  <li>Small, friendly feedback sample.</li>
+                  <li>Fitting the writing, build and review into the project schedule.</li>
+                  <li>Getting useful criticism from a small group of classmates.</li>
                 </ul>
               </div>
             </details>
             <details class="rt-tab">
               <summary>Next steps</summary>
               <div class="rt-panel-body">
-                <h3 class="rt-h">Recommendations</h3>
+                <h3 class="rt-h">What I’ll revise next</h3>
                 <ol class="rt-list">
-                  <li>If the helpfulness rating is under 3.5, simplify the check-in and add a more concrete example.</li>
-                  <li>If interviewees skip the step picker, make it more prominent.</li>
-                  <li>If the mobile test finds problems, fix those before adding features.</li>
+                  <li>If reviewers find the message unhelpful, I’ll revisit the wording and examples. The target is still an average helpfulness rating of at least 3.5 out of 5.</li>
+                  <li>If people miss the small-step picker, I’ll make it easier to find.</li>
+                  <li>Any reading or navigation problems on phones come first.</li>
                 </ol>
-                <p class="rt-note">Later: expand the interactive check-in and start regular posting after draft review.</p>
-                <h3 class="rt-h">Lessons</h3>
-                <p>MS1 showed why it helps to submit early and avoid last-minute issues. [PLACEHOLDER: my 1-2 honest lessons and what I'd do differently]</p>
-                <h3 class="rt-h">Long-term</h3>
-                <p>Review sources and support contacts every term, re-run link and Lighthouse checks, and keep the Drive backup current. Local support contacts must be verified before publishing.</p>
+                <p class="rt-note">Extra features and social posts can wait until the feedback has been addressed.</p>
+                <h3 class="rt-h">Before the final submission</h3>
+                <p>The review results still need to be added. The final reflection should explain which suggestions were used, what changed, and what I would do differently next time.</p>
+                <h3 class="rt-h">Keeping it up to date</h3>
+                <p>Check the sources and links each term, repeat the accessibility checks after major changes, and keep the backup updated. Any support contact added later needs to be checked first.</p>
               </div>
             </details>
           </div>
-          <div class="page-controls"><button class="page-button previous" type="button" data-go="support">Previous: Support</button><span class="page-count">7 of 7</span><button class="page-button next" type="button" data-go="home">Back to home</button></div>
-          <p class="rt-stop">That's everything. Nothing more below. <button class="rt-stop-home" type="button" data-go="home">Back to home</button></p>
+          <div class="page-controls"><button class="page-button previous" type="button" data-go="support">Previous: Support</button><span class="page-count">7 of 8</span><button class="page-button next" type="button" data-go="peer-review">Next: Leave a review</button></div>
+          <p class="rt-stop">Had a look around? <button class="rt-stop-home" type="button" data-go="peer-review">Leave a peer review</button></p>
         </div>
       </section>
     </div>
-  </main>
+  <div class="page" id="peer-review" data-title="Leave a review"><section class="rubric-section" aria-labelledby="peer-title"><div class="section-head"><span class="section-number">08</span><h2 class="page-heading-target" id="peer-title" tabindex="-1">What did you think?</h2></div><div class="section-body"><p class="peer-intro">If you’ve explored the site, I’d appreciate your honest feedback. What came across clearly, and what could I improve?</p><p>Your review goes privately to the project author. No account is needed. This form is for feedback on this website; complete your class’s required peer-review sheet separately if one was assigned.</p><form id="peer-review-form" class="peer-form"><div class="peer-pair"><label>Your name <span>Optional — you can leave this blank.</span><input name="name" maxlength="80" autocomplete="name"></label><label>Class or section <span>Optional</span><input name="section" maxlength="80"></label></div><fieldset><legend>A few quick ratings</legend><label>How clear is the main message?<select name="clarity" required><option value="">Choose a rating</option><option value="1">1 — Not at all</option><option value="2">2 — A little</option><option value="3">3 — Somewhat</option><option value="4">4 — Mostly</option><option value="5">5 — Very much</option></select></label><label>How relevant is the page to young adults dealing with changed plans?<select name="relevance" required><option value="">Choose a rating</option><option value="1">1 — Not at all</option><option value="2">2 — A little</option><option value="3">3 — Somewhat</option><option value="4">4 — Mostly</option><option value="5">5 — Very much</option></select></label><label>How easy is the site to read and use?<select name="usability" required><option value="">Choose a rating</option><option value="1">1 — Not at all</option><option value="2">2 — A little</option><option value="3">3 — Somewhat</option><option value="4">4 — Mostly</option><option value="5">5 — Very much</option></select></label><label>After reading, how much less behind or alone do you feel?<select name="helpfulness" required><option value="">Choose a rating</option><option value="1">1 — Not at all</option><option value="2">2 — A little</option><option value="3">3 — Somewhat</option><option value="4">4 — Mostly</option><option value="5">5 — Very much</option></select></label></fieldset><fieldset><legend>Tell me a little more</legend><label>What do you think the main message is?<textarea name="message" required maxlength="1500"></textarea></label><label>Was anything confusing or hard to use?<span>If nothing stood out, say so.</span><textarea name="confusing" required maxlength="1500"></textarea></label><label>What is one thing I could improve?<textarea name="suggestion" required maxlength="1500"></textarea></label><label>Did you choose a small step? What would you do?<span>Optional</span><textarea name="smallStep" maxlength="500"></textarea></label></fieldset><div class="peer-trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><label class="peer-consent"><input type="checkbox" name="consent" required>Send my feedback privately to the project author for this UTS project.</label><button type="submit">Send my review</button></form><p id="peer-status" class="peer-status" role="status" tabindex="-1" aria-live="polite"></p><div id="peer-receipt" class="peer-receipt" hidden><h3>Review received</h3><p>Thanks for taking the time to help improve this project.</p><p>Reference: <span id="peer-reference"></span></p></div><div class="page-controls"><button type="button" class="page-button previous" data-go="project-review">Previous: Project review</button><span class="page-count">8 of 8</span><button type="button" class="page-button next" data-go="home">Back to home</button></div></div></section></div>
+</main>
 
   <script>
 (function () {
@@ -1300,5 +1298,7 @@ nav a[aria-current="page"] {
   document.body.insertBefore(layer, document.body.firstChild);
 }());
   </script>
+<script src="assets/peer-review.js?v=1"></script>
 </body>
 </html>
+
