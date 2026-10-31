@@ -792,6 +792,7 @@ nav a[aria-current="page"] {
 
   </style>
 <link rel="stylesheet" href="assets/peer-review.css?v=2">
+<link rel="stylesheet" href="assets/responsive.css?v=2">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -1056,6 +1057,10 @@ nav a[aria-current="page"] {
   var pageButtons = Array.prototype.slice.call(document.querySelectorAll('[data-go]'));
   var currentLabel = document.getElementById('current-page-label');
   var pageMenu = document.getElementById('page-menu');
+  var compactMenu = window.matchMedia('(max-width: 860px)');
+  function syncMenu() { pageMenu.open = !compactMenu.matches; }
+  compactMenu.addEventListener('change', syncMenu);
+  syncMenu();
 
   function replaceStatus(element, message) {
     element.replaceChildren(document.createTextNode(message));
@@ -1122,7 +1127,7 @@ nav a[aria-current="page"] {
       else link.removeAttribute('aria-current');
     });
     currentLabel.textContent = target.getAttribute('data-title') || 'Home';
-    if (window.innerWidth <= 590) pageMenu.open = false;
+    if (compactMenu.matches) pageMenu.open = false;
     if (!options || !options.fromHistory) {
       if (window.location.hash !== '#' + targetId) window.history.pushState({ page: targetId }, '', '#' + targetId);
     }
@@ -1233,4 +1238,5 @@ nav a[aria-current="page"] {
 <script src="assets/peer-review.js?v=3"></script>
 </body>
 </html>
+
 
