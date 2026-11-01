@@ -759,7 +759,8 @@ nav a[aria-current="page"] {
   .review-theme .rt-tab-btn { transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease; }
 }
 @media (max-width: 590px) {
-  .review-theme .rt-table, .review-theme .rt-table tbody, .review-theme .rt-table tr, .review-theme .rt-table td { display: block; width: 100%; }
+  /* The caption must join the stacked layout; table-caption otherwise shrinks to a narrow anonymous table. */
+  .review-theme .rt-table, .review-theme .rt-table caption, .review-theme .rt-table tbody, .review-theme .rt-table tr, .review-theme .rt-table td { display: block; width: 100%; }
   .review-theme .rt-table { border: 0; }
   .review-theme .rt-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .review-theme .rt-table tr { margin-bottom: 12px; border: 1px solid var(--r-line); border-radius: 12px; background: var(--r-surface); }
